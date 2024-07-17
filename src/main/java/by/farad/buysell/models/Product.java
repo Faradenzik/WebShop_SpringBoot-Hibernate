@@ -38,7 +38,7 @@ public class Product {
 //    @Column(name = "images", columnDefinition = "text[]")
 //    private List<String> images;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "seller_id")
     private Seller seller;
 }

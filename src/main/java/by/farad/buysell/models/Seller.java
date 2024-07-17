@@ -5,8 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "sellers")
@@ -25,9 +26,12 @@ public class Seller {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "registration_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "registration_date", nullable = false, updatable = false)
     private Date registrationDate;
 
-    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product> products;
+    @PrePersist
+    protected void init() {
+        registrationDate = new Date();
+    }
 }
