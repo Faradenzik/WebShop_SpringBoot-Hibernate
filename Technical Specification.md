@@ -21,7 +21,7 @@ Title: Название продукта (String)
 Category: Категория продукта (String)
 Description: Описание продукта (String)  
 Price: Цена продукта (Double)  
-Quantity: Количество единиц продукта (Integer)
+Quantity: Количество единиц продукта (Integer)  
 Seller_id: ID продавца, которому принадлежит продукт (BigInteger)  
   
 ### Требования к системе:  
