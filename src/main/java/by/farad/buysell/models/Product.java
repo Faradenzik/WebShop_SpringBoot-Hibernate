@@ -19,7 +19,7 @@ public class Product {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(name = "category")
@@ -39,6 +39,6 @@ public class Product {
 //    private List<String> images;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "seller_id")
+    @JoinColumn(name = "seller_id", nullable = false)
     private Seller seller;
 }

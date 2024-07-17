@@ -6,10 +6,12 @@
 <body>
 <h1>BUYSELL</h1>
 <h4>Каталог товаров</h4>
+
 <form>
     Поиск по названию: <input type="text" name="title"><br>
     <input type="submit" value="Поиск"/>
 </form>
+
 <#list products as product>
     <div>
         <p><b>${product.title}</b> ${product.price} $ | <a href="/product/${product.id}">Подробнее..</a></p>
@@ -17,7 +19,9 @@
     <#else>
     <h3>Товары не найдены</h3>
 </#list>
+
 <hr>
+
 <h3>Добавить товар</h3>
 <form action="/products/create" method="post">
     Название: <input type="text" name="title"/><br><br>
