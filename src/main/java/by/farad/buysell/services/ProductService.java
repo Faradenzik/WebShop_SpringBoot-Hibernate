@@ -2,35 +2,31 @@ package by.farad.buysell.services;
 
 import by.farad.buysell.models.Product;
 import by.farad.buysell.repositories.ProductRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@Slf4j
-@RequiredArgsConstructor
 public class ProductService {
-    private final ProductRepository productRepository;
-    private List<Product> products = new ArrayList<>();
 
-    public List<Product> getProducts(String title) {
-        if (title != null) productRepository.findByTitle(title);
+    @Autowired
+    private ProductRepository productRepository;
+
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public void addProduct(Product product) {
-        log.info("Adding new {}", product);
-        productRepository.save(product);
+    public Optional<Product> getProductById(Long id) {
+        return productRepository.findById(id);
+    }
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
     }
 
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
-    }
-
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
     }
 }

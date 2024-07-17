@@ -1,12 +1,12 @@
 package by.farad.buysell.repositories;
 
-import by.farad.buysell.models.Product;
+import by.farad.buysell.models.Seller;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findByTitle(String title);
+public interface SellerRepository extends JpaRepository<Seller, Long> {
+    List<Seller> findByName(String name);
 }

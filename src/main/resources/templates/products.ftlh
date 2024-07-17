@@ -8,7 +8,7 @@
 <h4>Каталог товаров</h4>
 <form>
     Поиск по названию: <input type="text" name="title"><br>
-    <input type="submit" name="Поиск"/>
+    <input type="submit" value="Поиск"/>
 </form>
 <#list products as product>
     <div>
@@ -19,7 +19,7 @@
 </#list>
 <hr>
 <h3>Добавить товар</h3>
-<form action="/product/create" method="post">
+<form action="/products/create" method="post">
     Название: <input type="text" name="title"/><br><br>
     Категория: <input type="text" name="category"/><br><br>
     Описание: <input type="text" name="description"/><br><br>
